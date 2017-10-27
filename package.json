@@ -9,7 +9,9 @@
     "test": "lab -t 99 -S -T ./test/lab/transform -L --lint-options '{\"extensions\":[\".js\",\".jsx\"]}' ./test/lab/client-before.js ./test/client/ ./test/lab/client-after.js ./test/server/ ./test/lab/server-after.js ./test/misc/",
     "test-client": "lab -v -t 99 -S -T ./test/lab/transform -L --lint-options '{\"extensions\":[\".js\",\".jsx\"]}' ./test/lab/client-before.js $TEST_TARGET ./test/lab/client-after.js || true",
     "test-server": "lab -v -t 99 -S -T ./test/lab/transform -L --lint-options '{\"extensions\":[\".js\",\".jsx\"]}' $TEST_TARGET ./test/lab/server-after.js || true",
-    "postinstall": "gulp build"
+    "postinstall": "gulp build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "Reza Akhavan <jedireza@gmail.com> (http://reza.akhavan.me/)",
   "license": "MIT",
@@ -44,7 +46,8 @@
     "redux": "3.x.x",
     "slug": "0.9.x",
     "vision": "4.x.x",
-    "visionary": "6.x.x"
+    "visionary": "6.x.x",
+    "snyk": "^1.46.0"
   },
   "devDependencies": {
     "babel-core": "6.x.x",
@@ -84,5 +87,6 @@
     "require-dir": "0.3.x",
     "webpack": "1.x.x",
     "xhr": "2.x.x"
-  }
+  },
+  "snyk": true
 }
